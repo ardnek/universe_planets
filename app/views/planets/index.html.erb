@@ -1,0 +1,12 @@
+<h1>The Universe</h1>
+<p>Look at all the planets!</p>
+
+<%= link_to "Visit your favorite planet", new_planet_path %>
+
+<br><br>
+
+<% @planets.each do |planet| %>
+
+<%= planet.date %>
+
+<% end %>
