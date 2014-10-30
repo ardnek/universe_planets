@@ -8,6 +8,21 @@ class PlanetsController < ApplicationController
     @planet = Planet.new
   end
 
+  def create
+    @planet = Planet.new
+    @planet.date = params[:planet][:date]
+      if @planet.save
+        redirect_to planet_path(@planet.id)
+      else
+        # render :news
+        redirect_to planets_path
+      end
+  end
+
+  def show
+    @planet = Planet.find(params[:id])
+  end
+
   def edit
     @planet = Planet.find(params[:id])
   end
@@ -19,20 +34,10 @@ class PlanetsController < ApplicationController
     redirect_to planets_path
   end
 
-
-def create
-  @planet = Planet.new
-  @planet.date = params[:planet][:date]
-    if @planet.save
-      redirect_to planet_path(@planet.id)
-    else
-      # render :news
-      redirect_to planets_path
-    end
-end
-
-    def show
-      @planet = Planet.find(params[:id])
-    end
+  def destroy
+    @planet = Planet.find(params[:id])
+    @planet.destroy
+    redirect_to planets_path
+  end
 
 end
