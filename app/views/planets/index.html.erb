@@ -1,12 +1,27 @@
 <h1>The Universe</h1>
-<p>Look at all the planets!</p>
-
-<%= link_to "Visit your favorite planet", new_planet_path %>
-
-<br><br>
-
-<% @planets.each do |planet| %>
-
-<%= planet.date %>
-
-<% end %>
+<p><%= link_to "Plan your intergalactic stellar times!", new_planet_path %></p>
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Description</th>
+        <th>Life forms?</th>
+    </tr>
+  </thead>
+    <tbody>
+      <% @planets.each do |planet| %>
+      <tr>
+        <td><%= planet.name %></td>
+        <td><%= planet.date %></td>
+        <td><%= planet.location %></td>
+        <td><%= planet.description %></td>
+        <td><%= planet.life_forms %></td>
+        <td><%= link_to "Edit", edit_planet_path(planet) %></td>
+        <td><%= link_to "Show", planet_path(planet) %></td>
+        <td><%= link_to "Delete", planet_path(planet), method: :delete %></td>
+      </tr>
+      <% end %>
+    </tbody>
+ </table>

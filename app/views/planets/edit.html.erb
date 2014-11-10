@@ -1,15 +1,19 @@
-<h1>Planets</h1>
-
+<h1>Edit Planet</h1>
 <%= form_for @planet do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+<%= f.label :date_visiting %>
+<%= f.date_field :date %>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+<%= f.label :location %>
+<%= f.text_field :location %>
 
-  <%= f.submit %>
+<%= f.label :description_of_your_journey %>
+<%= f.text_field :description %>
 
-  <%= link_to "destroy planet", planet_path(@planet), :method => :delete %>
-  
+<%= f.label :hosting_other_life_forms? %>
+<%= f.check_box :life_forms %>
+
+<%= f.submit %>
 <% end %>

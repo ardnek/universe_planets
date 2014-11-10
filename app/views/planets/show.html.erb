@@ -1,4 +1,8 @@
-<h1>Galaxies</h1>
-<%= @planet.date %>
+<h1><%= @planet.name %></h1>
+<%= @planet.date %></br>
+<%= @planet.location %></br>
+<%= @planet.description %></br>
+<%= @planet.life_forms %></br>
 
-<%= link_to "Just visiting your world", edit_planet_path(@planet) %>
+<%= link_to "All Planets", planets_path %> |
+<%= link_to "Edit", edit_planet_path(@planet) %>
